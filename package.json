@@ -6,9 +6,12 @@
   "author": "mayconbalves <mayconmustaine@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/entry.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
