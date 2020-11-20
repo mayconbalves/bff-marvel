@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 let favoriteSchema = new Schema({
-  id: { type: Number, require: true },
+  id: Number,
+  name: String,
   like: { type: Boolean, required: true }
 })
 

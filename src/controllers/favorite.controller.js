@@ -3,14 +3,15 @@ const Favorite = require('../models/favorite.model')
 module.exports = {
   async list(req, res) {
     const favorite = await Favorite.find({}).sort('-createdAt-')
-    return res.json(favorite.slice(0, 5))
+    return res.json(favorite)
   },
 
   async create(req, res) {
     const favorite = await Favorite.create(
       {
-        id: req.body.id,
-        like: req.body.like
+        name: req.body.name,
+        like: req.body.like,
+        id: req.body.id
       }
     )
     return res.json(favorite)
@@ -22,7 +23,7 @@ module.exports = {
   },
 
   async update(req, res) {
-    const favorite = await Favorite.findOneAndUpdate(req.params.id, {$set: req.body})
+    const favorite = await Favorite.findByIdAndUpdate(req.params.id, {$set: req.body})
     return res.json(favorite)
   }
 }
